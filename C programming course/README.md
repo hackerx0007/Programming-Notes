@@ -711,3 +711,213 @@ In C programming, a **string** is a sequence of characters terminated by a null 
 - **String Functions:** Functions from `<string.h>` such as `strlen()`, `strcpy()`, `strcat()`, and `strcmp()` are used to perform various operations on strings.
 
 Strings are fundamental in C for handling text and performing various text-based operations.
+
+In C programming, a **data type** is a classification that specifies which type of data can be stored and manipulated within a program. Data types define the nature of the data and the operations that can be performed on it.
+
+In C programming, data types can be broadly categorized into several types. Each type defines the kind of data it can hold and the operations that can be performed on it. Here’s a detailed overview:
+
+### 1. **Basic Data Types**
+
+#### **Integer Types**
+   - **`int`**: Stores integer values (e.g., `-10`, `0`, `25`).
+     - **Size:** Typically 4 bytes (32 bits).
+     - **Range:** Depends on the system but usually `-2,147,483,648` to `2,147,483,647`.
+   - **`short`**: Stores smaller integer values.
+     - **Size:** Typically 2 bytes (16 bits).
+     - **Range:** Usually `-32,768` to `32,767`.
+   - **`long`**: Stores larger integer values.
+     - **Size:** Typically 4 bytes (32 bits) or 8 bytes (64 bits) depending on the system.
+     - **Range:** Depends on size (e.g., `-2,147,483,648` to `2,147,483,647` for 32-bit).
+   - **`long long`**: Stores very large integer values.
+     - **Size:** Typically 8 bytes (64 bits).
+     - **Range:** Usually `-9,223,372,036,854,775,808` to `9,223,372,036,854,775,807`.
+
+#### **Floating-Point Types**
+   - **`float`**: Stores single-precision floating-point numbers.
+     - **Size:** Typically 4 bytes (32 bits).
+     - **Range:** Approximately `1.5 × 10^−45` to `3.4 × 10^38` with 6-9 decimal digits of precision.
+   - **`double`**: Stores double-precision floating-point numbers.
+     - **Size:** Typically 8 bytes (64 bits).
+     - **Range:** Approximately `5.0 × 10^−324` to `1.7 × 10^308` with 15-17 decimal digits of precision.
+   - **`long double`**: Stores extended-precision floating-point numbers.
+     - **Size:** Typically 10 bytes (80 bits) or more.
+     - **Range and Precision:** Greater than `double`, but varies by implementation.
+
+#### **Character Type**
+   - **`char`**: Stores a single character.
+     - **Size:** Typically 1 byte (8 bits).
+     - **Range:** `-128` to `127` for `signed char`, or `0` to `255` for `unsigned char`.
+
+### 2. **Derived Data Types**
+
+#### **Arrays**
+   - **Description:** Collection of elements of the same type.
+   - **Example:**
+     ```c
+     int numbers[5] = {1, 2, 3, 4, 5};
+     ```
+
+#### **Pointers**
+   - **Description:** Variables that store memory addresses of other variables.
+   - **Example:**
+     ```c
+     int *ptr;
+     int value = 10;
+     ptr = &value;  // ptr now holds the address of value
+     ```
+
+#### **Structures**
+   - **Description:** User-defined data types that group different types of variables.
+   - **Example:**
+     ```c
+     struct Person {
+         char name[50];
+         int age;
+     };
+     ```
+
+#### **Unions**
+   - **Description:** Similar to structures but only one member can hold a value at a time.
+   - **Example:**
+     ```c
+     union Data {
+         int i;
+         float f;
+         char str[20];
+     };
+     ```
+
+#### **Enumer
+
+#### **Enumerations (enum)**
+   - **Description:** User-defined type that consists of a set of named integer constants.
+   - **Example:**
+     ```c
+     enum Day { Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday };
+     enum Day today = Wednesday;
+     ```
+
+### 3. **Void Type**
+
+   - **Description:** Represents the absence of a type. Used for functions that do not return a value and for pointers to indicate that they can point to any data type.
+   - **Example:**
+     ```c
+     void printMessage() {
+         printf("Hello, World!\n");
+     }
+     ```
+
+### Summary
+
+1. **Basic Data Types:**
+   - **Integer Types:** `int`, `short`, `long`, `long long`
+   - **Floating-Point Types:** `float`, `double`, `long double`
+   - **Character Type:** `char`
+
+2. **Derived Data Types:**
+   - **Arrays**
+   - **Pointers**
+   - **Structures (`struct`)**
+   - **Unions (`union`)**
+   - **Enumerations (`enum`)**
+
+3. **Void Type:**
+   - **`void`** – No specific type
+
+Each data type serves a specific purpose and is chosen based on the needs of the program, such as the type of data being handled and the operations to be performed.
+
+### Basic Data Types
+
+1. **Integer Types**
+   - **Description:** Used to store whole numbers.
+   - **Examples:**
+     - `int` – Stores integer values (e.g., `-10`, `0`, `25`).
+     - `short` – Stores smaller integer values (typically 16 bits).
+     - `long` – Stores larger integer values (typically 32 or 64 bits).
+     - `long long` – Stores very large integer values (typically 64 bits).
+
+   ```c
+   int age = 30;
+   short height = 160;
+   long population = 7800000000L;
+   long long distance = 123456789012345LL;
+   ```
+
+2. **Floating-Point Types**
+   - **Description:** Used to store numbers with fractional parts.
+   - **Examples:**
+     - `float` – Stores single-precision floating-point numbers (typically 32 bits).
+     - `double` – Stores double-precision floating-point numbers (typically 64 bits).
+     - `long double` – Stores extended-precision floating-point numbers (typically 80 bits).
+
+   ```c
+   float pi = 3.14f;
+   double e = 2.718281828459;
+   long double largeNumber = 1.2345678901234567890L;
+   ```
+
+3. **Character Type**
+   - **Description:** Used to store single characters.
+   - **Example:**
+     - `char` – Stores a single character (e.g., `'a'`, `'1'`, `'%'`).
+
+   ```c
+   char letter = 'A';
+   ```
+
+4. **Void Type**
+   - **Description:** Represents the absence of data type. It is used for functions that do not return a value and for pointers to indicate that they can point to any data type.
+   - **Examples:**
+     - `void` – Used in functions that do not return a value.
+
+   ```c
+   void printMessage() {
+       printf("Hello, World!\n");
+   }
+   ```
+
+### Type Modifiers
+
+Type modifiers are used to alter the properties of basic data types.
+
+- **`signed`** – Indicates that the variable can hold both positive and negative values.
+- **`unsigned`** – Indicates that the variable can only hold non-negative values.
+- **`short`** – Indicates a smaller range of values.
+- **`long`** – Indicates a larger range of values.
+
+```c
+unsigned int positiveNumber = 100;
+signed int negativeNumber = -50;
+long long veryLargeNumber = 9876543210LL;
+```
+
+### Example
+
+Here is a C program that demonstrates different data types:
+
+```c
+#include <stdio.h>
+
+int main() {
+    int age = 25;
+    float height = 5.9f;
+    double weight = 70.55;
+    char grade = 'A';
+
+    printf("Age: %d\n", age);
+    printf("Height: %.1f\n", height);
+    printf("Weight: %.2f\n", weight);
+    printf("Grade: %c\n", grade);
+
+    return 0;
+}
+```
+
+### Summary
+
+- **Integer Types:** Used for whole numbers.
+- **Floating-Point Types:** Used for numbers with fractions.
+- **Character Type:** Used for single characters.
+- **Void Type:** Indicates no data or unspecified data type.
+
+Understanding data types is crucial for effective memory management and for performing correct operations in C programming.
