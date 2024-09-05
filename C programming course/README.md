@@ -936,3 +936,120 @@ void main(){
 }
 
 ```
+
+### What is a Variable in C?
+
+A **variable** in C is a named location in memory that is used to store data. The data stored in a variable can be changed during program execution. Each variable has a specific **data type** that determines the type of data it can store, such as integers, floating-point numbers, characters, etc.
+
+### Syntax for Declaring Variables
+
+To declare a variable in C, you need to specify its **data type** followed by its **name** (identifier):
+
+```c
+data_type variable_name;
+```
+
+For example:
+
+```c
+int age;      // Declaring an integer variable
+float height; // Declaring a floating-point variable
+char grade;   // Declaring a character variable
+```
+
+### Variable Initialization
+
+You can also assign a value to a variable at the time of declaration:
+
+```c
+int age = 25;
+float height = 5.9;
+char grade = 'A';
+```
+
+### Types of Variables in C
+
+1. **Local Variables**
+   - **Description:** Declared inside a function or block and can only be used within that function or block.
+   - **Example:**
+     ```c
+     void myFunction() {
+         int localVar = 10;  // Local variable
+         printf("%d", localVar);
+     }
+     ```
+
+2. **Global Variables**
+   - **Description:** Declared outside of all functions and can be accessed by any function within the program.
+   - **Example:**
+     ```c
+     int globalVar = 100;  // Global variable
+
+     void myFunction() {
+         printf("%d", globalVar);  // Accessing global variable
+     }
+     ```
+
+3. **Static Variables**
+   - **Description:** Declared with the `static` keyword. Retains its value between function calls and is initialized only once.
+   - **Example:**
+     ```c
+     void myFunction() {
+         static int counter = 0;  // Static variable
+         counter++;
+         printf("%d", counter);
+     }
+     ```
+
+4. **Automatic Variables**
+   - **Description:** By default, variables declared inside a function are automatic variables, meaning their lifetime is limited to the function.
+   - **Example:**
+     ```c
+     void myFunction() {
+         int autoVar = 10;  // Automatic variable
+         printf("%d", autoVar);
+     }
+     ```
+
+5. **Extern Variables**
+   - **Description:** Declared with the `extern` keyword to indicate that the variable is defined in another file or later in the same file.
+   - **Example:**
+     ```c
+     extern int externalVar;  // Declaration of extern variable
+     ```
+
+### Example Program with Variables
+
+```c
+#include <stdio.h>
+
+int globalVar = 100;  // Global variable
+
+void display() {
+    static int staticVar = 1;  // Static variable
+    int localVar = 10;         // Local variable
+    staticVar++;               // Static variable retains its value
+    printf("Local: %d, Static: %d, Global: %d\n", localVar, staticVar, globalVar);
+}
+
+int main() {
+    display();
+    display();  // Static variable retains its incremented value
+    return 0;
+}
+```
+
+### Variable Naming Rules
+1. **Must start with a letter or underscore (`_`).**
+2. **Cannot use C keywords** like `int`, `float`, `if`, `else`.
+3. **No spaces or special characters** except underscores.
+
+### Summary of Variables in C
+
+- **Local Variables**: Declared inside a function or block, accessible only within that scope.
+- **Global Variables**: Declared outside of all functions, accessible by all functions.
+- **Static Variables**: Retain their value between function calls and have a local scope.
+- **Automatic Variables**: Declared within functions, their lifetime ends when the function ends.
+- **Extern Variables**: Declared but not defined in the current scope, used to reference a variable in another file.
+
+Variables are a fundamental part of programming in C as they allow you to store and manipulate data throughout your program.
