@@ -921,3 +921,18 @@ int main() {
 - **Void Type:** Indicates no data or unspecified data type.
 
 Understanding data types is crucial for effective memory management and for performing correct operations in C programming.
+
+```c
+#include <stdio.h>
+#include <conio.h>
+
+void main(){
+    int num1, num2, result;
+    num1= 2;
+    num2= 4;
+    result = num1 + num2;
+    printf("Result : ");
+    printf("%d", result);
+}
+
+```
