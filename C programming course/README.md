@@ -1053,3 +1053,258 @@ int main() {
 - **Extern Variables**: Declared but not defined in the current scope, used to reference a variable in another file.
 
 Variables are a fundamental part of programming in C as they allow you to store and manipulate data throughout your program.
+
+### What is a Storage Class in C?
+
+A **storage class** in C defines the **scope, lifetime, and visibility** of variables and functions. It tells the compiler where to store a variable, how long the variable should exist, and who can access it. 
+
+### Types of Storage Classes in C
+
+There are four primary storage classes in C:
+
+1. **Automatic (`auto`)**
+2. **External (`extern`)**
+3. **Static (`static`)**
+4. **Register (`register`)**
+
+---
+
+### 1. **Automatic (`auto`)**
+
+- **Scope**: Local to the block or function in which it is defined.
+- **Lifetime**: Exists until the function/block in which it is defined completes execution.
+- **Default storage class** for variables declared inside a function.
+- **Keyword**: `auto` (optional because it is the default).
+
+#### Example:
+```c
+void myFunction() {
+    auto int x = 10;  // 'x' is an automatic variable
+    printf("%d", x);
+}
+```
+In this case, `x` is local to `myFunction`, and its storage is automatically managed by the compiler.
+
+---
+
+### 2. **External (`extern`)**
+
+- **Scope**: Global, accessible across different files.
+- **Lifetime**: The entire duration of the program’s execution.
+- Used when a variable or function is **defined in one file** and **used in another**.
+- **Keyword**: `extern`
+
+#### Example:
+File 1 (`file1.c`):
+```c
+int globalVar = 10;  // Global variable definition
+```
+
+File 2 (`file2.c`):
+```c
+extern int globalVar;  // Referencing the global variable from file1
+void myFunction() {
+    printf("%d", globalVar);  // Accessing the global variable
+}
+```
+`extern` tells the compiler that the variable is defined elsewhere (in another file).
+
+---
+
+### 3. **Static (`static`)**
+
+- **Scope**: If declared inside a function, it's local to the function. If declared globally, it’s local to the file.
+- **Lifetime**: Retains its value between function calls or persists throughout the program when declared globally.
+- **Keyword**: `static`
+
+#### Example 1 (Local Static):
+```c
+void myFunction() {
+    static int count = 0;  // 'count' retains its value between calls
+    count++;
+    printf("%d", count);
+}
+
+int main() {
+    myFunction();  // Output: 1
+    myFunction();  // Output: 2 (value is retained)
+}
+```
+
+#### Example 2 (Global Static):
+```c
+static int globalVar = 10;  // This variable is accessible only within this file
+```
+In both cases, the `static` keyword makes the variable retain its value.
+
+---
+
+### 4. **Register (`register`)**
+
+- **Scope**: Local to the block or function where it is declared.
+- **Lifetime**: Exists until the block or function completes execution.
+- Suggests that the variable be stored in a **register** instead of RAM, making access faster (but it's up to the compiler to decide).
+- **Keyword**: `register`
+
+#### Example:
+```c
+void myFunction() {
+    register int counter = 0;  // Request to store 'counter' in a register
+    for (int i = 0; i < 10; i++) {
+        counter++;
+    }
+}
+```
+`register` is often used for variables that are frequently accessed, like loop counters.
+
+---
+
+### Summary of Storage Classes
+
+| Storage Class | Scope          | Lifetime             | Keyword   | Used For |
+|---------------|----------------|----------------------|-----------|----------|
+| **auto**      | Local          | Until block/function ends | `auto` (optional) | Local variables |
+| **extern**    | Global         | Entire program        | `extern`  | Sharing variables/functions across files |
+| **static**    | Local or File  | Retains value across calls (if local), entire program (if global) | `static` | Persistent local variables or file-local globals |
+| **register**  | Local          | Until block/function ends | `register` | Faster access (request) |
+
+Storage classes control how variables are stored, where they can be accessed from, and how long they persist in memory.
+
+### `printf()` and `scanf()` Functions in C
+
+The functions `printf()` and `scanf()` are used for **input** and **output** in C. Both functions work with **format strings** and **argument lists** to display or read values of different types.
+
+---
+
+### 1. **`printf()` Function**
+
+- **Purpose**: Used to print output to the console.
+- **Syntax**: 
+  ```c
+  printf("format string", argument_list);
+  ```
+- **Example**:
+  ```c
+  int age = 25;
+  printf("Age: %d\n", age);  // Output: Age: 25
+  ```
+
+- **`format string`**: A string containing text to be displayed and placeholders (format specifiers) for variables.
+- **`argument_list`**: The variables or values that are substituted in place of the format specifiers in the format string.
+
+---
+
+### 2. **`scanf()` Function**
+
+- **Purpose**: Used to read input from the user.
+- **Syntax**:
+  ```c
+  scanf("format string", argument_list);
+  ```
+- **Example**:
+  ```c
+  int age;
+  scanf("%d", &age);  // Reads an integer and stores it in the variable 'age'
+  ```
+
+- **`format string`**: A string containing format specifiers that define the type of data to be read.
+- **`argument_list`**: The addresses of variables where the input data will be stored. For `scanf()`, you need to pass **pointers** (use the `&` symbol before the variable name).
+
+---
+
+### Format Specifiers
+
+A **format specifier** tells `printf()` or `scanf()` the type of data that is being handled (e.g., integer, float, character). Each specifier starts with a `%` symbol followed by a character that represents the data type.
+
+#### Common Format Specifiers:
+
+| Format Specifier | Data Type        | Description                        |
+|------------------|------------------|------------------------------------|
+| `%d` or `%i`     | Integer          | Decimal integer                    |
+| `%f`             | Float/Double     | Floating-point number              |
+| `%c`             | Character        | Single character                   |
+| `%s`             | String           | Sequence of characters             |
+| `%lf`            | Double           | Double precision floating-point    |
+| `%u`             | Unsigned Integer | Unsigned decimal number            |
+| `%x` or `%X`     | Hexadecimal      | Hexadecimal representation of an integer |
+| `%o`             | Octal            | Octal representation of an integer |
+| `%p`             | Pointer          | Memory address                     |
+
+#### Example of Using `printf()`:
+```c
+int num = 10;
+float pi = 3.14;
+char letter = 'A';
+
+printf("Integer: %d\n", num);     // Output: Integer: 10
+printf("Float: %.2f\n", pi);      // Output: Float: 3.14
+printf("Character: %c\n", letter);// Output: Character: A
+```
+
+#### Example of Using `scanf()`:
+```c
+int num;
+float pi;
+char letter;
+
+scanf("%d", &num);   // Reading an integer
+scanf("%f", &pi);    // Reading a float
+scanf(" %c", &letter); // Reading a character (space before %c to consume any leftover newline)
+
+printf("Num: %d, Pi: %.2f, Letter: %c\n", num, pi, letter);
+```
+
+---
+
+### Detailed Explanation of Format Specifiers:
+
+1. **Integer Format Specifier (`%d` or `%i`)**:
+   - Used for printing or reading integers.
+   - Example:
+     ```c
+     int num = 100;
+     printf("Value: %d", num);  // Output: Value: 100
+     ```
+
+2. **Floating-point Format Specifier (`%f` or `%lf`)**:
+   - Used for printing or reading floating-point numbers (e.g., decimals).
+   - `%f` is used for `float`, and `%lf` is used for `double`.
+   - Example:
+     ```c
+     float num = 3.14;
+     printf("Value: %.2f", num);  // Output: Value: 3.14
+     ```
+
+3. **Character Format Specifier (`%c`)**:
+   - Used for printing or reading a single character.
+   - Example:
+     ```c
+     char ch = 'A';
+     printf("Character: %c", ch);  // Output: Character: A
+     ```
+
+4. **String Format Specifier (`%s`)**:
+   - Used for printing or reading a string of characters.
+   - Example:
+     ```c
+     char name[] = "John";
+     printf("Name: %s", name);  // Output: Name: John
+     ```
+
+5. **Unsigned Integer Format Specifier (`%u`)**:
+   - Used for printing or reading unsigned integers (non-negative values).
+   - Example:
+     ```c
+     unsigned int num = 300;
+     printf("Unsigned Value: %u", num);  // Output: Unsigned Value: 300
+     ```
+
+---
+
+### Summary:
+
+- **`printf()`** is used to print output, while **`scanf()`** is used to read input.
+- Both functions use **format strings** and **argument lists** to specify the data types to be printed or read.
+- **Format specifiers** in the format string tell the functions how to interpret the data (e.g., `%d` for integers, `%f` for floats).
+
+Format specifiers are essential for properly handling different data types in C programs.
