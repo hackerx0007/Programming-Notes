@@ -1,3 +1,8 @@
+<p align="center">
+    <img align="center" src="https://github.com/hackerx0007/Programming-Notes/blob/main/C%20programming%20course/c_programming-removebg-preview.png" width="200" />
+</p>
+# <div align="center"><img src="https://github.com/hackerx0007/Programming-Notes/blob/main/C%20programming%20course/c_programming-removebg-preview.png"  width="70" height="50"/>&nbsp; HELLO GUY'S, I'M CYB3R KING &nbsp; <img src="https://github.com/hackerx0007/Programming-Notes/blob/main/C%20programming%20course/c_programming-removebg-preview.png" alt="Technologist" width="70" height="50"/> </div>
+
 
 ### What is a Program?
 
