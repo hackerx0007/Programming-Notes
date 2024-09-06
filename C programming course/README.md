@@ -1331,3 +1331,133 @@ int main() {
 }
 
 ```
+
+### Constants in C
+
+In C, **constants** are fixed values that cannot be changed during the execution of a program. They are defined in the code and used to represent data that remains the same throughout the program. Constants can be of various types such as integers, floating-point numbers, characters, and strings.
+
+### Types of Constants in C
+
+1. **Integer Constants**
+2. **Floating-point Constants**
+3. **Character Constants**
+4. **String Constants**
+5. **Symbolic Constants**
+
+---
+
+### 1. **Integer Constants**
+
+An **integer constant** is a whole number without a fractional part.
+
+- **Example**:
+  ```c
+  int a = 10;  // 10 is an integer constant
+  ```
+
+---
+
+### 2. **Floating-point Constants**
+
+A **floating-point constant** is a number with a fractional part (decimals).
+
+- **Example**:
+  ```c
+  float pi = 3.14;  // 3.14 is a floating-point constant
+  ```
+
+---
+
+### 3. **Character Constants**
+
+A **character constant** represents a single character enclosed in single quotes (`'`).
+
+- **Example**:
+  ```c
+  char grade = 'A';  // 'A' is a character constant
+  ```
+
+---
+
+### 4. **String Constants**
+
+A **string constant** is a sequence of characters enclosed in double quotes (`"`).
+
+- **Example**:
+  ```c
+  char name[] = "John";  // "John" is a string constant
+  ```
+
+---
+
+### 5. **Symbolic Constants**
+
+A **symbolic constant** is a name given to constant values, typically defined using the `#define` preprocessor directive or the `const` keyword.
+
+#### Using `#define`:
+- **Example**:
+  ```c
+  #define PI 3.14159  // PI is a symbolic constant
+  int main() {
+      float area = PI * 2 * 2;  // Using the symbolic constant
+      printf("Area: %.2f\n", area);
+      return 0;
+  }
+  ```
+
+#### Using `const`:
+- **Example**:
+  ```c
+  const int MAX = 100;  // MAX is a constant integer
+  int main() {
+      printf("Max value: %d\n", MAX);
+      return 0;
+  }
+  ```
+
+---
+
+### Example Code with Different Constants:
+
+```c
+#include <stdio.h>
+
+#define PI 3.14159  // Symbolic constant
+
+int main() {
+    const int MAX = 100;  // Constant integer
+    int radius = 5;
+    float area;
+
+    // Integer constant
+    int age = 25;  
+
+    // Floating-point constant
+    area = PI * radius * radius;
+
+    // Character constant
+    char grade = 'A';
+
+    // String constant
+    char name[] = "Alice";
+
+    // Printing constants
+    printf("Age: %d\n", age);                  // Output: Age: 25
+    printf("Area of circle: %.2f\n", area);    // Output: Area of circle: 78.54
+    printf("Grade: %c\n", grade);              // Output: Grade: A
+    printf("Name: %s\n", name);                // Output: Name: Alice
+    printf("Max value: %d\n", MAX);            // Output: Max value: 100
+
+    return 0;
+}
+```
+
+### Summary of Constants:
+
+- **Integer Constants**: Whole numbers without decimal points.
+- **Floating-point Constants**: Numbers with decimal points.
+- **Character Constants**: Single characters enclosed in single quotes.
+- **String Constants**: Sequences of characters enclosed in double quotes.
+- **Symbolic Constants**: Named constants defined using `#define` or `const`.
+
+Constants in C help in making code more readable and easier to maintain by providing a way to use fixed values that cannot be modified during program execution.
