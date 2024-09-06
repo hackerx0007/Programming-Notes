@@ -1466,3 +1466,260 @@ int main() {
 - **Symbolic Constants**: Named constants defined using `#define` or `const`.
 
 Constants in C help in making code more readable and easier to maintain by providing a way to use fixed values that cannot be modified during program execution.
+
+### What is an Operator in C?
+
+An **operator** in C is a symbol that tells the compiler to perform a specific mathematical, logical, or relational operation on one or more operands. Operators are used in expressions to manipulate data and variables.
+
+### Types of Operators in C
+
+1. **Arithmetic Operators**
+2. **Relational Operators**
+3. **Logical Operators**
+4. **Bitwise Operators**
+5. **Assignment Operators**
+6. **Unary Operators**
+7. **Conditional (Ternary) Operator**
+8. **Comma Operator**
+9. **Sizeof Operator**
+10. **Pointer Operators**
+11. **Special Operators**
+
+---
+
+### 1. **Arithmetic Operators**
+
+These operators are used to perform basic arithmetic operations like addition, subtraction, multiplication, division, and modulus.
+
+- **Operators**: `+`, `-`, `*`, `/`, `%`
+- **Example**:
+  ```c
+  int a = 10, b = 5;
+  int sum = a + b;        // Addition
+  int diff = a - b;       // Subtraction
+  int prod = a * b;       // Multiplication
+  int quot = a / b;       // Division
+  int mod = a % b;        // Modulus (remainder)
+  ```
+
+---
+
+### 2. **Relational Operators**
+
+Relational operators are used to compare two values. They return either true (1) or false (0).
+
+- **Operators**: `==`, `!=`, `>`, `<`, `>=`, `<=`
+- **Example**:
+  ```c
+  int x = 10, y = 20;
+  int isEqual = (x == y);   // False (0)
+  int isNotEqual = (x != y); // True (1)
+  int isGreater = (x > y);  // False (0)
+  ```
+
+---
+
+### 3. **Logical Operators**
+
+Logical operators are used to combine two or more conditions or to negate a condition.
+
+- **Operators**: `&&` (AND), `||` (OR), `!` (NOT)
+- **Example**:
+  ```c
+  int a = 10, b = 5, c = 10;
+  int result1 = (a == c) && (b < c);  // True (1)
+  int result2 = (a == c) || (b > c);  // True (1)
+  int result3 = !(a > b);             // False (0)
+  ```
+
+---
+
+### 4. **Bitwise Operators**
+
+Bitwise operators perform operations on the individual bits of integers.
+
+- **Operators**: `&` (AND), `|` (OR), `^` (XOR), `~` (NOT), `<<` (Left Shift), `>>` (Right Shift)
+- **Example**:
+  ```c
+  int a = 5;  // Binary: 0101
+  int b = 9;  // Binary: 1001
+
+  int and = a & b;  // AND: 0001 (1)
+  int or = a | b;   // OR: 1101 (13)
+  int xor = a ^ b;  // XOR: 1100 (12)
+  int not = ~a;     // NOT: 1010 (two's complement)
+  int lshift = a << 1;  // Left Shift: 1010 (10)
+  int rshift = b >> 1;  // Right Shift: 0100 (4)
+  ```
+
+---
+
+### 5. **Assignment Operators**
+
+Assignment operators are used to assign values to variables.
+
+- **Operators**: `=`, `+=`, `-=`, `*=`, `/=`, `%=`, `<<=`, `>>=`, `&=`, `^=`, `|=`
+- **Example**:
+  ```c
+  int a = 10;
+  a += 5;  // a = a + 5 (a becomes 15)
+  a *= 2;  // a = a * 2 (a becomes 30)
+  ```
+
+---
+
+### 6. **Unary Operators**
+
+Unary operators operate on a single operand to perform various operations like incrementing/decrementing a value, negating an expression, or testing the size of a data type.
+
+- **Operators**: `++`, `--`, `-`, `+`, `!`, `~`
+- **Example**:
+  ```c
+  int x = 10;
+  int y = ++x;  // Pre-increment (x becomes 11, y is 11)
+  int z = x--;  // Post-decrement (x becomes 10, z is 11)
+  ```
+
+---
+
+### 7. **Conditional (Ternary) Operator**
+
+The conditional operator is a shorthand for an if-else statement and has the form `? :`.
+
+- **Operator**: `? :`
+- **Example**:
+  ```c
+  int a = 10, b = 20;
+  int max = (a > b) ? a : b;  // max is 20
+  ```
+
+---
+
+### 8. **Comma Operator**
+
+The comma operator allows multiple expressions to be evaluated in a single statement, with the last expression being the result.
+
+- **Operator**: `,`
+- **Example**:
+  ```c
+  int a, b, c;
+  c = (a = 1, b = 2, a + b);  // a becomes 1, b becomes 2, c becomes 3
+  ```
+
+---
+
+### 9. **Sizeof Operator**
+
+The `sizeof` operator returns the size, in bytes, of its operand.
+
+- **Operator**: `sizeof`
+- **Example**:
+  ```c
+  int a = 10;
+  int size = sizeof(a);  // Size of int (typically 4 bytes)
+  ```
+
+---
+
+### 10. **Pointer Operators**
+
+Pointer operators are used to work with pointers.
+
+- **Operators**: `*` (Dereference), `&` (Address-of)
+- **Example**:
+  ```c
+  int a = 10;
+  int *p = &a;  // p points to the address of a
+  int value = *p;  // value is the value at the address p (value becomes 10)
+  ```
+
+---
+
+### 11. **Special Operators**
+
+- **Comma (` , `) Operator**: Used to separate expressions.
+- **Member Access Operators**: `.` (dot) and `->` (arrow)
+- **Example**:
+  ```c
+  struct Point {
+      int x, y;
+  };
+
+  struct Point p = {1, 2};
+  int xCoord = p.x;  // Accessing member 'x' using the dot operator
+  ```
+
+---
+
+### Example Code with Various Operators:
+
+```c
+#include <stdio.h>
+
+int main() {
+    int a = 10, b = 20;
+    int sum, diff, prod, quot, mod;
+    int isEqual, isNotEqual, isGreater;
+    int and, or, xor, not;
+    int result;
+
+    // Arithmetic Operators
+    sum = a + b;
+    diff = a - b;
+    prod = a * b;
+    quot = a / b;
+    mod = a % b;
+
+    // Relational Operators
+    isEqual = (a == b);
+    isNotEqual = (a != b);
+    isGreater = (a > b);
+
+    // Logical Operators
+    result = (a == 10) && (b == 20);
+    result = (a == 10) || (b == 15);
+    result = !(a == 15);
+
+    // Bitwise Operators
+    and = a & b;
+    or = a | b;
+    xor = a ^ b;
+    not = ~a;
+
+    // Assignment Operators
+    a += 5;
+    b *= 2;
+
+    // Unary Operators
+    ++a;
+    --b;
+
+    // Conditional (Ternary) Operator
+    result = (a > b) ? a : b;
+
+    // Sizeof Operator
+    int size = sizeof(a);
+
+    printf("Sum: %d, Difference: %d, Product: %d, Quotient: %d, Modulus: %d\n", sum, diff, prod, quot, mod);
+    printf("Is Equal: %d, Is Not Equal: %d, Is Greater: %d\n", isEqual, isNotEqual, isGreater);
+    printf("Bitwise AND: %d, OR: %d, XOR: %d, NOT: %d\n", and, or, xor, not);
+    printf("Size of a: %d bytes\n", size);
+
+    return 0;
+}
+```
+
+### Summary of Operators:
+
+- **Arithmetic Operators**: Perform mathematical operations.
+- **Relational Operators**: Compare values.
+- **Logical Operators**: Combine or negate conditions.
+- **Bitwise Operators**: Perform operations on individual bits.
+- **Assignment Operators**: Assign values to variables.
+- **Unary Operators**: Operate on a single operand.
+- **Conditional (Ternary) Operator**: Shorten conditional statements.
+- **Sizeof Operator**: Get the size of a data type or variable.
+- **Pointer Operators**: Work with pointers and addresses.
+
+Operators are essential in C programming for manipulating data, controlling flow, and performing various calculations.
+
