@@ -1308,3 +1308,26 @@ printf("Num: %d, Pi: %.2f, Letter: %c\n", num, pi, letter);
 - **Format specifiers** in the format string tell the functions how to interpret the data (e.g., `%d` for integers, `%f` for floats).
 
 Format specifiers are essential for properly handling different data types in C programs.
+
+
+### This is Simple Code Of calculates the area of a rectangle by taking two inputs
+
+```c
+#include <stdio.h>
+
+int main() {
+    int base, height, area;
+    // Input base
+    printf("Enter the base: ");
+    scanf("%d", &base);
+    // Input height
+    printf("Enter the height: ");
+    scanf("%d", &height);
+    // Calculate area
+    area = base * height;
+    // Output the result
+    printf("The area of the rectangle is: %d", area);
+    return 0;
+}
+
+```
