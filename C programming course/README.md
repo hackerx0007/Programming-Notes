@@ -1,7 +1,7 @@
 <p align="center">
     <img align="center" src="https://github.com/hackerx0007/Programming-Notes/blob/main/Images/c_programming-removebg-preview.png" width="200" />
 </p>
-<div align="center">&nbsp; Welcome to C Programming Notes &nbsp; 
+<div align="center"><img src="https://github.com/hackerx0007/Programming-Notes/blob/main/Images/c_programming-removebg-preview.png"  width="50" height="50"/>&nbsp; Welcome to C Programming Notes &nbsp; <img src="https://github.com/hackerx0007/Programming-Notes/blob/main/Images/c_programming-removebg-preview.png" alt="Technologist" width="50" height="50"/> </div>
 
 
 ### What is a Program?
