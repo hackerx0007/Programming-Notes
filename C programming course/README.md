@@ -1723,3 +1723,578 @@ int main() {
 
 Operators are essential in C programming for manipulating data, controlling flow, and performing various calculations.
 
+### Decision Making in C: `if` and `if-else` Statements
+
+Decision-making statements in C allow you to control the flow of the program based on certain conditions. The two most common decision-making statements are `if` and `if-else`.
+
+---
+
+### 1. **`if` Statement**
+
+The `if` statement is used to execute a block of code only if a specified condition is true. If the condition evaluates to false, the block of code is skipped.
+
+#### Syntax:
+
+```c
+if (condition) {
+    // Block of code to execute if condition is true
+}
+```
+
+#### Example:
+
+```c
+#include <stdio.h>
+
+int main() {
+    int number = 10;
+
+    // Check if the number is positive
+    if (number > 0) {
+        printf("The number is positive.\n");
+    }
+
+    return 0;
+}
+```
+
+#### Explanation:
+- The condition `number > 0` is checked.
+- Since `number` is `10`, which is greater than `0`, the condition is true, and the message "The number is positive." is printed.
+
+---
+
+### 2. **`if-else` Statement**
+
+The `if-else` statement is an extension of the `if` statement. It allows you to execute one block of code if the condition is true and another block of code if the condition is false.
+
+#### Syntax:
+
+```c
+if (condition) {
+    // Block of code to execute if condition is true
+} else {
+    // Block of code to execute if condition is false
+}
+```
+
+#### Example:
+
+```c
+#include <stdio.h>
+
+int main() {
+    int number = -5;
+
+    // Check if the number is positive or negative
+    if (number > 0) {
+        printf("The number is positive.\n");
+    } else {
+        printf("The number is negative.\n");
+    }
+
+    return 0;
+}
+```
+
+#### Explanation:
+- The condition `number > 0` is checked.
+- Since `number` is `-5`, which is not greater than `0`, the condition is false.
+- The `else` block is executed, and the message "The number is negative." is printed.
+
+---
+
+### Combining `if` and `if-else`:
+
+You can also chain multiple conditions using `if`, `else if`, and `else` statements to handle different scenarios.
+
+#### Example:
+
+```c
+#include <stdio.h>
+
+int main() {
+    int number = 0;
+
+    // Check if the number is positive, negative, or zero
+    if (number > 0) {
+        printf("The number is positive.\n");
+    } else if (number < 0) {
+        printf("The number is negative.\n");
+    } else {
+        printf("The number is zero.\n");
+    }
+
+    return 0;
+}
+```
+
+#### Explanation:
+- The program checks if `number` is greater than `0`. If true, it prints "The number is positive."
+- If the first condition is false, it checks if `number` is less than `0`. If true, it prints "The number is negative."
+- If neither condition is true, the `else` block is executed, printing "The number is zero."
+
+---
+
+### Summary:
+
+- **`if` statement**: Executes a block of code if the condition is true.
+- **`if-else` statement**: Executes one block of code if the condition is true, and another if it is false.
+- **`else if`**: Allows checking multiple conditions in sequence.
+
+These constructs are fundamental in controlling the flow of a C program based on varying conditions.
+
+
+### Decision Making in C: Nested `if`, `switch` Statement, and Nested `switch` Statement
+
+Decision-making statements allow a program to choose different paths of execution based on certain conditions. In C, along with the basic `if` and `if-else` statements, you can use nested `if` statements and `switch` statements for more complex decision-making.
+
+---
+
+### 1. **Nested `if` Statement**
+
+A nested `if` statement is an `if` statement that is placed inside another `if` or `else` block. This is useful when you need to check multiple conditions sequentially.
+
+#### Syntax:
+
+```c
+if (condition1) {
+    // Block of code to execute if condition1 is true
+
+    if (condition2) {
+        // Block of code to execute if condition2 is true
+    } else {
+        // Block of code to execute if condition2 is false
+    }
+
+} else {
+    // Block of code to execute if condition1 is false
+}
+```
+
+#### Example:
+
+```c
+#include <stdio.h>
+
+int main() {
+    int number = 10;
+
+    // Check if the number is positive
+    if (number > 0) {
+        printf("The number is positive.\n");
+
+        // Check if the number is even
+        if (number % 2 == 0) {
+            printf("The number is even.\n");
+        } else {
+            printf("The number is odd.\n");
+        }
+
+    } else {
+        printf("The number is not positive.\n");
+    }
+
+    return 0;
+}
+```
+
+#### Explanation:
+- The outer `if` checks if `number` is positive.
+- If true, it then checks whether the number is even or odd using a nested `if` statement.
+
+---
+
+### 2. **`switch` Statement**
+
+The `switch` statement is used to select one of many blocks of code to be executed. It's an alternative to long `if-else` chains, especially when you're comparing the same variable against multiple values.
+
+#### Syntax:
+
+```c
+switch (expression) {
+    case value1:
+        // Block of code to execute if expression == value1
+        break;
+    case value2:
+        // Block of code to execute if expression == value2
+        break;
+    // More cases...
+    default:
+        // Block of code to execute if none of the cases match
+}
+```
+
+#### Example:
+
+```c
+#include <stdio.h>
+
+int main() {
+    int day = 3;
+
+    switch (day) {
+        case 1:
+            printf("Monday\n");
+            break;
+        case 2:
+            printf("Tuesday\n");
+            break;
+        case 3:
+            printf("Wednesday\n");
+            break;
+        case 4:
+            printf("Thursday\n");
+            break;
+        case 5:
+            printf("Friday\n");
+            break;
+        default:
+            printf("Weekend\n");
+    }
+
+    return 0;
+}
+```
+
+#### Explanation:
+- The `switch` statement checks the value of `day`.
+- It matches `day` with one of the `case` values and executes the corresponding block.
+- If no case matches, the `default` block is executed.
+
+---
+
+### 3. **Nested `switch` Statement**
+
+A nested `switch` statement is when a `switch` statement is placed inside another `switch` statement. This can be used to handle more complex decision-making scenarios.
+
+#### Syntax:
+
+```c
+switch (expression1) {
+    case value1:
+        switch (expression2) {
+            case value2:
+                // Block of code to execute if expression2 == value2
+                break;
+            // More cases...
+        }
+        break;
+    // More cases...
+}
+```
+
+#### Example:
+
+```c
+#include <stdio.h>
+
+int main() {
+    int num1 = 2, num2 = 1;
+
+    switch (num1) {
+        case 1:
+            printf("First number is 1\n");
+            break;
+        case 2:
+            printf("First number is 2\n");
+
+            switch (num2) {
+                case 1:
+                    printf("Second number is 1\n");
+                    break;
+                case 2:
+                    printf("Second number is 2\n");
+                    break;
+                default:
+                    printf("Second number is something else\n");
+            }
+
+            break;
+        default:
+            printf("First number is something else\n");
+    }
+
+    return 0;
+}
+```
+
+#### Explanation:
+- The outer `switch` checks the value of `num1`.
+- If `num1` is `2`, the inner `switch` checks the value of `num2` and executes the corresponding block.
+
+---
+
+### Summary:
+
+- **Nested `if` Statement**: Used when you need to check multiple conditions, one inside another.
+- **`switch` Statement**: A cleaner way to compare a single variable against multiple values.
+- **Nested `switch` Statement**: Allows for handling more complex scenarios where one `switch` statement depends on another.
+
+These constructs give you the flexibility to handle a wide range of decision-making scenarios in your C programs.
+
+### What is a Loop in Programming?
+
+A **loop** in programming is a control structure that repeatedly executes a block of code as long as a specified condition is true. Loops are essential for tasks that require repetition, such as iterating over data structures, processing arrays, or performing repeated calculations.
+
+### Types of Loops in C
+
+In C, there are mainly three types of loops:
+1. **`for` Loop**
+2. **`while` Loop**
+3. **`do-while` Loop**
+
+These loops are categorized based on whether they check the loop condition at the beginning (entry-controlled) or at the end (exit-controlled) of the loop body.
+
+---
+
+### 1. **Entry-Controlled Loops**
+
+In entry-controlled loops, the condition is evaluated before the execution of the loop's body. If the condition is true, the loop body is executed; otherwise, the loop terminates. 
+
+**Types of Entry-Controlled Loops:**
+
+#### **a. `for` Loop**
+
+The `for` loop is used when the number of iterations is known in advance. It consists of three parts: initialization, condition, and increment/decrement.
+
+**Syntax:**
+
+```c
+for (initialization; condition; increment/decrement) {
+    // Code to be executed
+}
+```
+
+**Example:**
+
+```c
+#include <stdio.h>
+
+int main() {
+    for (int i = 0; i < 5; i++) {  // i starts at 0, increments by 1 until i < 5
+        printf("Iteration %d\n", i);
+    }
+    return 0;
+}
+```
+
+**Explanation:**
+- **Initialization:** `int i = 0` sets the starting point.
+- **Condition:** `i < 5` checks if the loop should continue.
+- **Increment:** `i++` increases `i` after each iteration.
+
+#### **b. `while` Loop**
+
+The `while` loop checks the condition before executing the loop's body. It continues to loop as long as the condition is true.
+
+**Syntax:**
+
+```c
+while (condition) {
+    // Code to be executed
+}
+```
+
+**Example:**
+
+```c
+#include <stdio.h>
+
+int main() {
+    int i = 0;
+
+    while (i < 5) {  // Loop continues as long as i < 5
+        printf("Iteration %d\n", i);
+        i++;  // Increment i after each iteration
+    }
+
+    return 0;
+}
+```
+
+**Explanation:**
+- **Condition:** `i < 5` is checked before each iteration.
+- **Increment:** `i++` ensures progress towards loop termination.
+
+---
+
+### 2. **Exit-Controlled Loop**
+
+In an exit-controlled loop, the condition is evaluated after the loop body is executed. This means the loop will always execute at least once, regardless of whether the condition is initially true or false.
+
+**Type of Exit-Controlled Loop:**
+
+#### **`do-while` Loop**
+
+The `do-while` loop is similar to the `while` loop, but the condition is checked after the loop body is executed. 
+
+**Syntax:**
+
+```c
+do {
+    // Code to be executed
+} while (condition);
+```
+
+**Example:**
+
+```c
+#include <stdio.h>
+
+int main() {
+    int i = 0;
+
+    do {
+        printf("Iteration %d\n", i);
+        i++;  // Increment i after each iteration
+    } while (i < 5);  // Condition checked after the loop body
+
+    return 0;
+}
+```
+
+**Explanation:**
+- The loop executes once before checking `i < 5`.
+- If the condition is true, the loop continues; otherwise, it stops.
+
+---
+
+### **Comparison: Entry-Controlled vs. Exit-Controlled Loops**
+
+- **Entry-Controlled Loops (`for` and `while`):**
+  - Condition is evaluated before the loop body executes.
+  - Loop body might not execute if the condition is false initially.
+
+- **Exit-Controlled Loop (`do-while`):**
+  - Condition is evaluated after the loop body executes.
+  - Loop body executes at least once, even if the condition is false initially.
+
+---
+
+### Summary
+
+- **Loops** are fundamental constructs that allow repeated execution of code.
+- **Entry-Controlled Loops** (`for`, `while`) check the condition before execution.
+- **Exit-Controlled Loops** (`do-while`) check the condition after execution.
+- Loops are used to perform tasks repetitively, such as processing data, performing calculations, or automating repetitive tasks.
+
+These loops provide flexibility in controlling how many times a block of code is executed, making them essential tools for efficient programming.
+
+### What is a Nested Loop?
+
+A **nested loop** is a loop inside another loop. The inner loop is executed completely every time the outer loop executes once. Nested loops are used when you need to perform iterative tasks within another iterative task, such as processing elements of a 2D array or creating patterns.
+
+### Syntax of Nested Loops
+
+```c
+for (initialization; condition; increment/decrement) {
+    // Outer loop body
+    
+    for (initialization; condition; increment/decrement) {
+        // Inner loop body
+    }
+}
+```
+
+### Example: Nested `for` Loop
+
+Let's consider a simple example where we use a nested `for` loop to print a 2D matrix of numbers:
+
+```c
+#include <stdio.h>
+
+int main() {
+    int rows = 3;
+    int columns = 4;
+
+    for (int i = 1; i <= rows; i++) {  // Outer loop
+        for (int j = 1; j <= columns; j++) {  // Inner loop
+            printf("%d ", j);
+        }
+        printf("\n");  // Move to the next line after each row
+    }
+
+    return 0;
+}
+```
+
+**Output:**
+```
+1 2 3 4 
+1 2 3 4 
+1 2 3 4 
+```
+
+**Explanation:**
+
+- The outer loop (`i` loop) controls the number of rows.
+- The inner loop (`j` loop) controls the number of columns.
+- For each iteration of the outer loop, the inner loop runs completely, printing numbers from `1` to `4`. After the inner loop finishes, `printf("\n");` moves to the next line to start a new row.
+
+### Example: Nested `while` Loop
+
+```c
+#include <stdio.h>
+
+int main() {
+    int i = 1, j;
+
+    while (i <= 3) {  // Outer loop
+        j = 1;
+        while (j <= 4) {  // Inner loop
+            printf("%d ", j);
+            j++;
+        }
+        printf("\n");
+        i++;
+    }
+
+    return 0;
+}
+```
+
+**Output:**
+```
+1 2 3 4 
+1 2 3 4 
+1 2 3 4 
+```
+
+### Real-World Use Case: Multiplication Table
+
+Nested loops are often used in creating multiplication tables.
+
+```c
+#include <stdio.h>
+
+int main() {
+    int n = 5;
+
+    for (int i = 1; i <= n; i++) {  // Outer loop for rows
+        for (int j = 1; j <= n; j++) {  // Inner loop for columns
+            printf("%d\t", i * j);  // Multiplication table entry
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+```
+
+**Output:**
+```
+1	2	3	4	5	
+2	4	6	8	10	
+3	6	9	12	15	
+4	8	12	16	20	
+5	10	15	20	25
+```
+
+### Summary
+
+- **Nested loops** allow you to place one loop inside another, enabling more complex and repetitive operations.
+- They are commonly used in scenarios that involve multi-dimensional data structures, pattern printing, and table generation.
+- Nested loops can be any combination of `for`, `while`, or `do-while` loops.
+
+While powerful, nested loops can lead to increased computational complexity, so they should be used judiciously to avoid performance issues.
