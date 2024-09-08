@@ -2298,3 +2298,541 @@ int main() {
 - Nested loops can be any combination of `for`, `while`, or `do-while` loops.
 
 While powerful, nested loops can lead to increased computational complexity, so they should be used judiciously to avoid performance issues.
+
+### Break, Continue, and Goto Statements in C
+
+**1. Break Statement:**
+- The `break` statement is used to exit a loop or switch statement prematurely, regardless of the loop's or switch's condition. When a `break` statement is encountered inside a loop, the control immediately comes out of the loop and continues with the next statement after the loop.
+
+**Example:**
+
+```c
+#include <stdio.h>
+
+int main() {
+    for (int i = 1; i <= 5; i++) {
+        if (i == 3) {
+            break;  // Exit the loop when i is 3
+        }
+        printf("%d\n", i);
+    }
+
+    return 0;
+}
+```
+
+**Output:**
+```
+1
+2
+```
+
+**Explanation:**
+- The loop runs from 1 to 5, but when `i` becomes 3, the `break` statement is executed, causing the loop to terminate.
+
+**2. Continue Statement:**
+- The `continue` statement is used to skip the current iteration of a loop and proceed with the next iteration. When a `continue` statement is encountered, the control moves directly to the beginning of the loop for the next iteration, bypassing any remaining code in the current iteration.
+
+**Example:**
+
+```c
+#include <stdio.h>
+
+int main() {
+    for (int i = 1; i <= 5; i++) {
+        if (i == 3) {
+            continue;  // Skip the current iteration when i is 3
+        }
+        printf("%d\n", i);
+    }
+
+    return 0;
+}
+```
+
+**Output:**
+```
+1
+2
+4
+5
+```
+
+**Explanation:**
+- The loop runs from 1 to 5, but when `i` is 3, the `continue` statement skips the rest of the loop body for that iteration and moves on to the next value of `i`.
+
+**3. Goto Statement:**
+- The `goto` statement is used to transfer control to a labeled statement within the same function. This allows for an abrupt jump to another part of the code. However, using `goto` is generally discouraged as it can make code harder to understand and maintain.
+
+**Example:**
+
+```c
+#include <stdio.h>
+
+int main() {
+    int i = 1;
+
+    start:  // Label
+    printf("%d\n", i);
+    i++;
+
+    if (i <= 5) {
+        goto start;  // Jump to the label
+    }
+
+    return 0;
+}
+```
+
+**Output:**
+```
+1
+2
+3
+4
+5
+```
+
+**Explanation:**
+- The `goto` statement causes the program to jump back to the `start` label, creating a loop that prints numbers from 1 to 5.
+
+### Summary:
+- **Break:** Exits a loop or switch statement immediately.
+- **Continue:** Skips the current iteration of a loop and moves to the next iteration.
+- **Goto:** Jumps to a labeled statement within the same function.
+
+These control statements can be powerful tools when used correctly, but they should be used with caution to ensure code clarity and maintainability.
+
+### Introduction to User-Defined Functions in C
+
+In C programming, a **function** is a block of code that performs a specific task. Functions help break down complex problems into smaller, manageable parts, making the code easier to understand, maintain, and reuse.
+
+A **user-defined function** is a function created by the programmer to perform specific tasks, unlike built-in functions (e.g., `printf`, `scanf`) that are provided by the C language.
+
+### Parts of a Function
+
+A function in C has three main parts:
+
+1. **Function Declaration (Prototype)**
+2. **Function Definition**
+3. **Function Call**
+
+### 1. Function Declaration (Prototype)
+
+The function declaration tells the compiler about the function's name, return type, and parameters (if any) without providing the actual implementation. It is usually placed at the beginning of the program or before the `main()` function.
+
+**Syntax:**
+
+```c
+return_type function_name(parameter_list);
+```
+
+**Example:**
+
+```c
+int add(int a, int b);
+```
+
+### 2. Function Definition
+
+The function definition contains the actual code or logic that is executed when the function is called. It includes the function's name, return type, parameters, and a body enclosed in curly braces `{}`.
+
+**Syntax:**
+
+```c
+return_type function_name(parameter_list) {
+    // Body of the function
+    // Code to perform the specific task
+}
+```
+
+**Example:**
+
+```c
+int add(int a, int b) {
+    return a + b;
+}
+```
+
+### 3. Function Call
+
+A function call is used to execute the function that has been defined. When the function is called, control passes to the function definition, and the statements within the function body are executed.
+
+**Syntax:**
+
+```c
+function_name(arguments);
+```
+
+**Example:**
+
+```c
+int result = add(5, 3);  // Calls the add function with 5 and 3 as arguments
+```
+
+### Example of a User-Defined Function in C
+
+Let's create a simple C program to add two numbers using a user-defined function:
+
+```c
+#include <stdio.h>
+
+// Function Declaration
+int add(int a, int b);
+
+int main() {
+    int num1 = 10, num2 = 20, sum;
+
+    // Function Call
+    sum = add(num1, num2);
+
+    printf("Sum: %d\n", sum);
+
+    return 0;
+}
+
+// Function Definition
+int add(int a, int b) {
+    return a + b;
+}
+```
+
+**Explanation:**
+
+1. **Function Declaration:** `int add(int a, int b);`
+   - The function `add` is declared to take two integer parameters (`a` and `b`) and return an integer value.
+
+2. **Function Call:** `sum = add(num1, num2);`
+   - The `add` function is called in the `main` function with `num1` and `num2` as arguments. The result is stored in the variable `sum`.
+
+3. **Function Definition:** `int add(int a, int b) { return a + b; }`
+   - The function `add` takes two integer arguments, adds them, and returns the result.
+
+**Output:**
+```
+Sum: 30
+```
+
+### Summary
+
+- **Function Declaration** (Prototype): Informs the compiler about the function name, return type, and parameters.
+- **Function Definition**: Provides the actual implementation of the function.
+- **Function Call**: Executes the function by passing control to the function definition.
+
+Functions are crucial for structuring C programs, enabling code reuse, and making programs more modular and manageable.
+
+### User-Defined Functions in C: Function and Parameters
+
+A **user-defined function** is a block of code written by the programmer that performs a specific task. Functions can take inputs, called parameters, and can return a value after execution. Parameters allow functions to operate on different data without needing to rewrite code.
+
+### Function Parameters
+
+**Parameters** are the variables or placeholders used in function definitions that allow the function to receive input values when it is called. Parameters make functions flexible and reusable.
+
+**Syntax of a Function with Parameters:**
+
+```c
+return_type function_name(parameter_type parameter_name, ... ) {
+    // Function body
+}
+```
+
+**Example:**
+
+```c
+#include <stdio.h>
+
+// Function with parameters
+int multiply(int x, int y) {
+    return x * y;
+}
+
+int main() {
+    int a = 5, b = 10;
+    int result = multiply(a, b);  // Calling the function with arguments
+    printf("Result: %d\n", result);
+    return 0;
+}
+```
+
+**Explanation:**
+
+- `int multiply(int x, int y)` is a function definition with two parameters, `x` and `y`, both of type `int`.
+- `multiply(a, b)` is a function call where `a` and `b` are passed as arguments.
+- The function returns the product of `x` and `y`.
+
+### User-Defined Functions: Types and Parameters
+
+User-defined functions can be categorized based on whether they take parameters and whether they return a value.
+
+#### 1. **Functions with No Parameters and No Return Value**
+
+These functions neither take any input (parameters) nor return any value. They simply execute a block of code when called.
+
+**Example:**
+
+```c
+#include <stdio.h>
+
+void greet() {
+    printf("Hello, World!\n");
+}
+
+int main() {
+    greet();  // Calling the function
+    return 0;
+}
+```
+
+**Explanation:**
+
+- `void greet()` is a function with no parameters and no return value.
+- The function prints "Hello, World!" when called.
+
+#### 2. **Functions with Parameters and No Return Value**
+
+These functions take parameters (inputs) but do not return a value. They perform an operation using the input values.
+
+**Example:**
+
+```c
+#include <stdio.h>
+
+void printSum(int x, int y) {
+    int sum = x + y;
+    printf("Sum: %d\n", sum);
+}
+
+int main() {
+    printSum(3, 7);  // Calling the function with arguments
+    return 0;
+}
+```
+
+**Explanation:**
+
+- `void printSum(int x, int y)` takes two parameters, adds them, and prints the sum.
+- The function is called with the arguments `3` and `7`.
+
+#### 3. **Functions with No Parameters but Return a Value**
+
+These functions do not take any parameters but return a value after execution.
+
+**Example:**
+
+```c
+#include <stdio.h>
+
+int getNumber() {
+    return 42;
+}
+
+int main() {
+    int number = getNumber();  // Calling the function and storing the return value
+    printf("Number: %d\n", number);
+    return 0;
+}
+```
+
+**Explanation:**
+
+- `int getNumber()` is a function that returns the value `42`.
+- The function is called, and the returned value is stored in `number`.
+
+#### 4. **Functions with Parameters and Return a Value**
+
+These functions take parameters (inputs) and return a value after performing an operation.
+
+**Example:**
+
+```c
+#include <stdio.h>
+
+int add(int x, int y) {
+    return x + y;
+}
+
+int main() {
+    int result = add(10, 20);  // Calling the function with arguments and storing the return value
+    printf("Result: %d\n", result);
+    return 0;
+}
+```
+
+**Explanation:**
+
+- `int add(int x, int y)` takes two integers as parameters and returns their sum.
+- The function is called with the arguments `10` and `20`, and the result is stored in `result`.
+
+### Summary
+
+- **User-defined functions** can be categorized into four types based on whether they accept parameters and whether they return a value.
+- **Parameters** allow functions to be flexible and reusable by accepting inputs.
+- **Return values** allow functions to send data back to the calling code, making them powerful tools for modular programming.
+
+Understanding the different types of user-defined functions and how to use parameters is crucial for writing efficient, reusable, and organized code in C.
+
+### Types of Parameters in C
+
+In C programming, there are two primary ways to pass parameters to functions: **Call by Value** and **Call by Reference**. These methods determine how the function interacts with the arguments passed to it.
+
+#### 1. **Call by Value**
+
+In **Call by Value**, a copy of the actual value of the argument is passed to the function. Changes made to the parameter inside the function do not affect the original value outside the function.
+
+**Example:**
+
+```c
+#include <stdio.h>
+
+void addTen(int num) {
+    num += 10;  // Only modifies the copy of the value
+    printf("Inside function: %d\n", num);
+}
+
+int main() {
+    int value = 5;
+    addTen(value);  // Call by Value
+    printf("Outside function: %d\n", value);
+    return 0;
+}
+```
+
+**Explanation:**
+
+- `addTen(int num)` receives a copy of `value`, so when `num` is modified inside the function, it does not affect the original `value`.
+- Output:
+  ```
+  Inside function: 15
+  Outside function: 5
+  ```
+
+#### 2. **Call by Reference**
+
+In **Call by Reference**, instead of passing the actual value, the address of the variable is passed. This means the function works with the original data, and changes made to the parameter will affect the original variable.
+
+**Example:**
+
+```c
+#include <stdio.h>
+
+void addTen(int *num) {
+    *num += 10;  // Modifies the original value through the pointer
+    printf("Inside function: %d\n", *num);
+}
+
+int main() {
+    int value = 5;
+    addTen(&value);  // Call by Reference
+    printf("Outside function: %d\n", value);
+    return 0;
+}
+```
+
+**Explanation:**
+
+- `addTen(int *num)` receives the address of `value`. Using `*num`, the function can directly modify `value` in the calling environment.
+- Output:
+  ```
+  Inside function: 15
+  Outside function: 15
+  ```
+
+### Summary
+
+- **Call by Value**: Passes a copy of the argument. Changes inside the function do not affect the original variable.
+- **Call by Reference**: Passes the address of the argument. Changes inside the function affect the original variable.
+
+Understanding these concepts helps in choosing the appropriate method depending on whether you want to modify the original data or work with a copy.
+
+### Scope of a Variable in C
+
+The **scope** of a variable refers to the region of the program where the variable can be accessed or used. In C, variables can have different scopes depending on where they are declared. The main types of variable scope are **local variables**, **global variables**, and **formal parameters**.
+
+### 1. Local Variables
+
+**Local variables** are declared inside a function or a block (e.g., within `{}`) and can only be accessed within that function or block. They are not known outside of their scope.
+
+**Example:**
+
+```c
+#include <stdio.h>
+
+void display() {
+    int localVar = 10;  // Local variable
+    printf("Local variable: %d\n", localVar);
+}
+
+int main() {
+    display();
+    // printf("%d", localVar);  // Error: localVar is not accessible here
+    return 0;
+}
+```
+
+**Explanation:**
+
+- `localVar` is a local variable declared inside the `display()` function.
+- `localVar` is only accessible within `display()` and not outside of it.
+- Attempting to access `localVar` outside its scope would result in a compilation error.
+
+### 2. Global Variables
+
+**Global variables** are declared outside of all functions, usually at the beginning of the program, and can be accessed by any function within the program. They have a global scope, meaning they are available throughout the program after their declaration.
+
+**Example:**
+
+```c
+#include <stdio.h>
+
+int globalVar = 20;  // Global variable
+
+void display() {
+    printf("Global variable in display(): %d\n", globalVar);
+}
+
+int main() {
+    printf("Global variable in main(): %d\n", globalVar);
+    display();
+    return 0;
+}
+```
+
+**Explanation:**
+
+- `globalVar` is a global variable declared outside of all functions.
+- It can be accessed in both the `main()` function and the `display()` function.
+
+### 3. Formal Parameters
+
+**Formal parameters** are variables that are declared in the function definition and are used to pass values into the function. These parameters act as local variables within the function scope, meaning they can only be accessed within the function.
+
+**Example:**
+
+```c
+#include <stdio.h>
+
+void multiply(int a, int b) {  // a and b are formal parameters
+    int result = a * b;
+    printf("Multiplication result: %d\n", result);
+}
+
+int main() {
+    multiply(5, 10);  // 5 and 10 are passed as arguments to the formal parameters a and b
+    return 0;
+}
+```
+
+**Explanation:**
+
+- `a` and `b` are formal parameters in the `multiply()` function.
+- These parameters receive the values `5` and `10` when the function is called and are used to compute the result.
+- The formal parameters `a` and `b` have local scope within the `multiply()` function.
+
+### Summary
+
+- **Local Variables**: Declared within a function or block, accessible only within that scope.
+- **Global Variables**: Declared outside all functions, accessible from any function in the program.
+- **Formal Parameters**: Variables used to pass values into functions, have local scope within the function they are defined in.
+
+Understanding the scope of variables is crucial for controlling access to data and avoiding errors such as variable shadowing or unintended modifications to global data.
