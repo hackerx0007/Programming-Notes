@@ -11,7 +11,7 @@ https://github.com/hackerx0007/Programming-Notes/blob/main/Images/pngwing.com%20
 
 
 # I am a indian ethical hacker 
-<img align="right" height="270px" alt="GIF" src="https://github.com/hackerx0007/Programming-Notes/blob/main/Images/pngwing.com%20(13).png" />
+<img align="right" height="370px" alt="GIF" src="https://github.com/hackerx0007/Programming-Notes/blob/main/Images/pngwing.com%20(13).png" />
 
 ### Course List
 1. **C Language Basic to Advanced Course** - 2 weeks
