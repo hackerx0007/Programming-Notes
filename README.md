@@ -11,8 +11,9 @@ https://github.com/hackerx0007/Programming-Notes/blob/main/Images/pngwing.com%20
 
 
 # I am a indian ethical hacker & Youtuber
-### Hey there! 👋
 <img align="right" height="270px" alt="GIF" src="https://github.com/hackerx0007/Programming-Notes/blob/main/Images/pngwing.com%20(13).png" />
+
+### Hey there! 👋
 - 🔭 I'm immersed in crafting content for my own channel.
 - 🌱 Currently on a learning spree, diving into everything I can.
 - 👯 Open to collaborating with fellow developers on exciting projects.
