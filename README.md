@@ -1,7 +1,7 @@
 <!-- https://github.com/hackerx0007/Programming-Notes/blob/main/Images/pngwing.com%20(13).png
 
 https://github.com/hackerx0007/Programming-Notes/blob/main/Images/pngwing.com%20(15).png -->
-
+### Jai Shree Krishna
 
 <p align="center">
     <img align="center" src="https://github.com/hackerx0007/Programming-Notes/blob/main/Images/pngwing.com%20(15).png" width="200" />
@@ -10,7 +10,7 @@ https://github.com/hackerx0007/Programming-Notes/blob/main/Images/pngwing.com%20
 
 
 
-# I am a indian ethical hacker & Youtuber
+# I am a indian ethical hacker 
 <img align="right" height="270px" alt="GIF" src="https://github.com/hackerx0007/Programming-Notes/blob/main/Images/pngwing.com%20(13).png" />
 
 ### Course List
