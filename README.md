@@ -13,14 +13,27 @@ https://github.com/hackerx0007/Programming-Notes/blob/main/Images/pngwing.com%20
 # I am a indian ethical hacker & Youtuber
 <img align="right" height="270px" alt="GIF" src="https://github.com/hackerx0007/Programming-Notes/blob/main/Images/pngwing.com%20(13).png" />
 
-### Hey there! 👋
-- 🔭 I'm immersed in crafting content for my own channel.
-- 🌱 Currently on a learning spree, diving into everything I can.
-- 👯 Open to collaborating with fellow developers on exciting projects.
-- 🚀 2024 Goals: Contributing significantly to Open Source projects.
-- 📬 Reach me: [Check out my YouTube channel and find me in the video descriptions.](https://www.youtube.com/@CYB3R__KIN)
-- 💣 Constantly striving to create something novel and practical.
-- 🎉 Fun fact: I thrive on building connections with diverse and interesting individuals. 😘
+### Course List
+1. **C Language Basic to Advanced Course** - 2 weeks
+2. **Computer Hardware** - 1 week
+3. **Computer Networking Course** - 2 weeks
+4. **Python Programming Course** - 2 weeks
+5. **Java Programming Advanced Course** - 2 weeks
+6. **C++ Course** - 2 weeks
+7. **C# Course** - 2 weeks
+8. **SQL Tutorial** - 1 week
+9. **The Complete JavaScript Course - Beginner to Advanced** - 2 weeks
+10. **Complete Ethical Hacking Course** - 2 weeks
+11. **Advanced Networking with Cisco (CCNA)** - 2 weeks
+12. **Cyber Forensics Masterclass with Hands-on Learning** - 2 weeks
+13. **Web Designing with HTML and HTML5 Course** - 1 week
+14. **Web Designing with CSS3 Course** - 1 week
+15. **PHP Course for Beginners** - 1 week
+16. **Advanced PHP with MVC Programming with Practicals** - 1 week
+17. **Android Development for Beginners** - 2 weeks
+18. **Live Project in Android with Source Code** - 2 weeks
+19. **Video Editing with Adobe Premiere Pro** - 1 week
+
 
 
 
